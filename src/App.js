@@ -1,24 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import MovieDetail from "./components/Movie/MovieDetails";
+import SerieDetail from "./components/Serie/SerieDetails";
+import Homepage from "./components/Home/Homepage";
+import Login from "./components/Login/Login";
+import SignUp from "./components/Login/Signup";
 
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import MoviePlayer from "./components/Movie/MoviePlayer";
+import SeriePlayer from "./components/Serie/SeriePlayer";
+import ListByGenre from "./components/Home/ListByGenre";
+import SearchResult from "./components/Search/SearchResult";
+import ActorList from "./components/Actor/ActorList";
+import ActorDetails from "./components/Actor/ActorDetails";
+import PlaylistResult from "./components/Playlist/PlaylistResult";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+
+    <Router>
+      <div className="flex flex-col min-h-screen">
+        <main className="flex-grow bg-gray-100">
+          <Routes>
+          <Route path="/" element={<div>
+          <Login />
+        </div>} />
+        <Route path="/homepage" element={<Homepage />} />
+        <Route path="/movies/:movieID" element={<MovieDetail />} />
+        <Route path="/series/:serieID" element={<SerieDetail />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/playMovie/:id" element={<MoviePlayer />} />
+        <Route path="/playSerie/:id/:epid" element={<SeriePlayer />} />
+        <Route path="/genre/:genre" element={<ListByGenre />} />
+        <Route path="/search/:key" element={<SearchResult />} />
+        <Route path="/actors" element={<ActorList />} />
+        <Route path="/actor/:actorName" element={<ActorDetails />} />
+        <Route path="/playlist" element={<PlaylistResult/>}/>
+          </Routes>
+        </main>
+      </div>
+    </Router>
   );
 }
 

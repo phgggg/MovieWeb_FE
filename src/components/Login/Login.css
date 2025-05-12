@@ -1,0 +1,106 @@
+/* Đặt nền cho trang đăng nhập */
+.login-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-image: url('https://wallpapers.com/images/hd/netflix-background-gs7hjuwvv2g0e9fj.jpg');
+    background-size: cover;
+    background-color: black;
+    background-position: center center;
+  }
+  
+  .login-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: -1;
+  }
+  
+  .login-content {
+    text-align: center;
+    color: white;
+    width: 350px;
+  }
+  
+  .login-logo {
+    width: 100%;
+    max-width: 180px;
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  
+  .login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .login-input {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #333;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    outline: none;
+  }
+  
+  .login-button {
+    padding: 12px;
+    background-color: #e50914;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .login-button:hover {
+    background-color: #f40612;
+  }
+  
+  .error-message {
+    margin-top: 20px;
+    color: red;
+    font-size: 14px;
+  }
+  
+  .sign-in-text {
+    font-size: 50px;
+    font-weight: bold;
+    color: white;
+    letter-spacing: 3px;
+    display: flex;
+    justify-content: left;
+    align-items:start;
+    position: relative;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"],
+input[type="date"] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #333;
+  color: white;
+  font-size: 14px;
+}
+
+button:hover {
+  background-color: #f40612;
+}

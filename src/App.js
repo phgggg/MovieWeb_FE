@@ -13,6 +13,7 @@ import SearchResult from "./components/Search/SearchResult";
 import ActorList from "./components/Actor/ActorList";
 import ActorDetails from "./components/Actor/ActorDetails";
 import PlaylistResult from "./components/Playlist/PlaylistResult";
+import UserManagement from "./components/UserManagement/UserManagement";
 function App() {
   return (
 
@@ -36,6 +37,7 @@ function App() {
         <Route path="/actors" element={<ActorList />} />
         <Route path="/actor/:actorName" element={<ActorDetails />} />
         <Route path="/playlist" element={<PlaylistResult/>}/>
+        <Route path="/user/manage" element={<UserManagement/>}/>
           </Routes>
         </main>
       </div>

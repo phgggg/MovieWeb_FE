@@ -10,7 +10,7 @@ const GenreDropdown = () => {
   useEffect(() => {
     const fetchGenres = async () => {
       try {
-        const response = await fetch("http://localhost:8888/api/genre/findAllGenre");
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/api/genre/findAllGenre`);
         const data = await response.json();
         if (data.errorCode != "00") {
           throw new Error(`HTTP error! status: ${data.description}`);

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-const apiBase = 'http://localhost:8888/api/user';
+const apiBase = `${process.env.REACT_APP_API_URL}/api/user`;
 
 export default function UserManagement() {
   const [jsonInput, setJsonInput] = useState('');

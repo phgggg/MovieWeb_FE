@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const API_URL = "http://localhost:8888/api/serie/findAll";
+const API_URL = `${process.env.REACT_APP_API_URL}/api/serie/findAll`;
 const TAGS = ["topRated", "popular", "airingToday", "onTV"];
 
 const SerieList = () => {

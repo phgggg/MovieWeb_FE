@@ -73,7 +73,7 @@ const ActorList = () => {
     const fetchActors = async () => {
       try {
         setIsLoading(true);
-        const response = await fetch('http://localhost:8888/api/actor/findAllActors');
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/api/actor/findAllActors`);
         const data = await response.json();
         
         if (data.errorCode === "00") {

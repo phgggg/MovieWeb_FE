@@ -13,7 +13,7 @@ const ActorDetails = () => {
     const fetchActorDetails = async () => {
       try {
         setIsLoading(true);
-        const response = await fetch(`http://localhost:8888/api/actor/actorByName/${encodeURIComponent(actorName)}`);
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/api/actor/actorByName/${encodeURIComponent(actorName)}`);
         const data = await response.json();
         
         if (data.errorCode === "00") {

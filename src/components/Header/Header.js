@@ -23,7 +23,7 @@ const Header = () => {
         setUserId(user.userID);
         
         // Fetch recommended content for the specific user
-        fetch(`http://localhost:8888/api/recommendations/user/${user.userID}`)
+        fetch(`${process.env.REACT_APP_API_URL}/api/recommendations/user/${user.userID}`)
           .then((response) => response.json())
           .then((data) => {
             if (data.errorCode === "00" && data.description === "ok") {

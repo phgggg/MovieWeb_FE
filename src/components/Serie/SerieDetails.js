@@ -9,7 +9,7 @@ const SerieDetail = () => {
   useEffect(() => {
     const fetchSerieDetails = async () => {
       try {
-        const response = await fetch(`http://localhost:8888/api/serie/findBySerieID/${serieID}`);
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/api/serie/findBySerieID/${serieID}`);
         const data = await response.json();
 
         if (data.errorCode === "00") {
@@ -52,7 +52,7 @@ const SerieDetail = () => {
       playlistItemDTO: playlistItem
     };
     try {
-      const response = await fetch(`http://localhost:8888/api/playlist/addToPlaylist`, {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/playlist/addToPlaylist`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(requestBody)

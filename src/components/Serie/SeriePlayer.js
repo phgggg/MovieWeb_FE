@@ -38,7 +38,7 @@ const SeriePlayer = () => {
     };
     
   // API base URL
-  const API_BASE_URL = 'http://localhost:8888/api';
+  const API_BASE_URL = `${process.env.REACT_APP_API_URL}/api`;
 
   useEffect(() => {
       // Fetch comments when component mounts
@@ -344,7 +344,7 @@ const SeriePlayer = () => {
 
     try {
       // Send the review to your API
-      const response = await fetch('http://localhost:8888/api/review/addReview', {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/review/addReview`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

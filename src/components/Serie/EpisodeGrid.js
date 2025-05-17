@@ -8,7 +8,7 @@ const EpisodeGrid = ({ serieID }) => {
   useEffect(() => {
     const fetchEpisodes = async () => {
       try {
-        const response = await fetch(`http://localhost:8888/api/serie/findSerieEpisode/${serieID}`);
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/api/serie/findSerieEpisode/${serieID}`);
         
         if (!response.ok) {
           throw new Error('Failed to fetch episodes');

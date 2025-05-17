@@ -8,7 +8,7 @@ const MovieDetail = () => {
   useEffect(() => {
     const fetchMovieDetails = async () => {
       try {
-        const response = await fetch(`http://localhost:8888/api/movie/findByMovieID/${movieID}`);
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/api/movie/findByMovieID/${movieID}`);
         const data = await response.json();
 
         if (data.errorCode === "00") {
@@ -51,7 +51,7 @@ const MovieDetail = () => {
       playlistItemDTO: playlistItem
     };
     try {
-      const response = await fetch(`http://localhost:8888/api/playlist/addToPlaylist`, {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/playlist/addToPlaylist`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(requestBody)

@@ -15,7 +15,7 @@ const SearchResult = () => {
     const fetchSearchResults = async () => {
       setLoading(true);
       try {
-        const response = await fetch(`http://localhost:8888/api/search/${key}`);
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/api/search/${key}`);
         
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);

@@ -28,7 +28,7 @@ const SignUp = () => {
     };
 
     try {
-      const response = await fetch("http://localhost:8888/api/user/register", {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/user/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(requestBody)
@@ -37,7 +37,7 @@ const SignUp = () => {
       const result = await response.json();
       if (result.errorCode === "00") {
         const userid = result.data;
-        const addNewPlaylist = await fetch("http://localhost:8888/api/playlist/addNewPlaylist/" + userid, {
+        const addNewPlaylist = await fetch(`${process.env.REACT_APP_API_URL}/api/playlist/addNewPlaylist/` + userid, {
           method: "POST",
           headers: { "Content-Type": "application/json" }
         });

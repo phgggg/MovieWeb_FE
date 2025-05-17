@@ -16,7 +16,7 @@ const PlaylistResult = () => {
     setLoading(true);
     try {
       
-      const response = await fetch(`http://localhost:8888/api/playlist/getPlayListItemFromUser/${key}`);
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/playlist/getPlayListItemFromUser/${key}`);
       const result = await response.json();  
       if (result.errorCode === "00") {
         setPlaylistResults({
@@ -56,7 +56,7 @@ const PlaylistResult = () => {
         movieID: movieID,
         userID: key
       };
-      const response = await fetch("http://localhost:8888/api/playlist/deleteItemFromPlaylist", {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/playlist/deleteItemFromPlaylist`, {
         method: "DELETE",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(requestBody)
@@ -80,7 +80,7 @@ const PlaylistResult = () => {
         serieID: serieID,
         userID: key
       };
-      const response = await fetch("http://localhost:8888/api/playlist/deleteItemFromPlaylist", {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/playlist/deleteItemFromPlaylist`, {
         method: "DELETE",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(requestBody)

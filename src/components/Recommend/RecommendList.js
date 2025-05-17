@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const API_URL = "http://localhost:8888/api/recommendations/user/";
+const API_URL = `${process.env.REACT_APP_API_URL}/api/recommendations/user/`;
 
 const RecommendList = () => {
   const user = JSON.parse(localStorage.getItem("user"));

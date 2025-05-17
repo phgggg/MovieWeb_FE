@@ -4,7 +4,7 @@ export default function Home() {
     const [movies, setMovies] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:8888/api/movies")
+        fetch(`${process.env.REACT_APP_API_URL}api/movies`)
             .then((res) => res.json())
             .then((data) => setMovies(data))
             .catch((err) => console.error("Error fetching movies:", err));

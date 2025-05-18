@@ -10,8 +10,6 @@ import Header from "../Header/Header";
 const SeriePlayer = () => {
   const { id } = useParams();
   const { epid } = useParams();
-  const navigate = useNavigate();
-  const location = useLocation();
   const [serie, setSerie] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -90,7 +88,7 @@ const SeriePlayer = () => {
         const hls = new Hls();
         hls.loadSource(source);
         
-        hls.on(Hls.Events.MANIFEST_PARSED, function (event, data) {
+        hls.on(Hls.Events.MANIFEST_PARSED, function () {
           const availableQualities = hls.levels.map((l) => l.height);
           
           const player = new Plyr(video, {
@@ -230,7 +228,7 @@ const SeriePlayer = () => {
   useEffect(() => {
     // Sự kiện beforeunload không đáng tin cậy với async
     // Sử dụng navigator.sendBeacon cho trường hợp này
-    const handleBeforeUnload = (event) => {
+    const handleBeforeUnload = () => {
       // Tạo dữ liệu để gửi
       try {
         const userDataString = localStorage.getItem("user");
@@ -383,7 +381,7 @@ const SeriePlayer = () => {
     revenue, 
     runtime,
     homepage
-  } = serie;
+  } = serie|| {};
 
   return (
     <div className="content bg-black">
@@ -428,7 +426,7 @@ const SeriePlayer = () => {
         <div 
           className="inf-mv" 
           style={{
-            background: `linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.9)), url(https://image.tmdb.org/t/p/w500${serie.posterPath})`,
+            background: `linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.9)), url(https://image.tmdb.org/t/p/w500${serie?.posterPath})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             color: 'white'
@@ -436,12 +434,12 @@ const SeriePlayer = () => {
         >
           <img 
             className="poster-image" 
-            src={`https://image.tmdb.org/t/p/w500${serie.posterPath}`} 
-            alt={serie.serieName} 
+            src={`https://image.tmdb.org/t/p/w500${serie?.posterPath}`} 
+            alt={serie?.serieName} 
           />
           <div>
             <h1 style={{fontSize: '40px'}} className="slider-text big-title title text-uppercase">
-              {serie.serieName}
+              {serie?.serieName}
             </h1>
             <div className="d-flex flex-wrap align-items-center fadeInLeft animated">
               <div className="slider-ratting d-flex align-items-center mr-4 mt-2 mt-md-3">
@@ -451,18 +449,18 @@ const SeriePlayer = () => {
                   ))}
                   <li><i className="fa fa-star-half"></i></li>
                 </ul>
-                <span className="text-white ml-2">{serie.voteAverage}</span>
+                <span className="text-white ml-2">{serie?.voteAverage}</span>
               </div>
               <div className="d-flex align-items-center mt-2 mt-md-3">
                 <span className="badge badge-secondary p-2">16+</span>
-                <span className="ml-3">{serie.runtime} (minutes)</span>
+                <span className="ml-3">{serie?.runtime} (minutes)</span>
               </div>
             </div>
-            <p>{serie.overview}</p>
+            <p>{serie?.overview}</p>
             <div className="trending-list">
               <div className="text-primary title starring">
                 Original name:
-                <span className="text-body">{serie.originalSerieName}</span>
+                <span className="text-body">{serie?.originalSerieName}</span>
               </div>
               <div className="text-primary title genres">
                 Genres: 
@@ -578,12 +576,12 @@ const SeriePlayer = () => {
                 <p className="comment-content text-gray-700">{comment.content}</p>
                 {comment.movie && (
                   <div className="movie-info text-sm text-gray-500 mt-2">
-                    Movie: {comment.movie.movieName}
+                    Movie: {comment.movie?.movieName}
                   </div>
                 )}
                 {comment.serie && (
                   <div className="serie-info text-sm text-gray-500 mt-2">
-                    Serie: {comment.serie.serieName}
+                    Serie: {comment.serie?.serieName}
                   </div>
                 )}
               </div>

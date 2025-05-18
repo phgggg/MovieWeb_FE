@@ -380,7 +380,7 @@ const MoviePlayer = () => {
     revenue, 
     runtime,
     homepage
-  } = movie;
+  } = movie|| {};
 
   return (
     <div className="content bg-black">

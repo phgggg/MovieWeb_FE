@@ -12,7 +12,7 @@ const Header = () => {
     series: []
   });
   const [searchQuery, setSearchQuery] = useState('');
-
+  const [showMessage, setShowMessage] = useState(false);
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("user"));
     if (user) {
@@ -21,7 +21,9 @@ const Header = () => {
       }
       if (user.userID) {
         setUserId(user.userID);
-        
+        if(user.userID === 4){
+          setShowMessage(true);
+        }
         // Fetch recommended content for the specific user
         fetch(`${process.env.REACT_APP_API_URL}/api/recommendations/user/${user.userID}`)
           .then((response) => response.json())
@@ -129,12 +131,12 @@ const Header = () => {
         <div
           className="absolute right-0 mt-2 bg-black text-white rounded shadow-md min-w-[150px] z-10 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all"
         >
-          <button
-            onClick={() => navigate("/profile")}
+          {showMessage && <button
+            onClick={() => navigate("/manage/user")}
             className="block w-full text-left px-4 py-2 hover:bg-gray-700"
           >
-            Thông tin người dùng
-          </button>
+            Quản lý thông tin người dùng
+          </button>}
           <button onClick={() => navigate("/playlist")} className="block w-full text-left px-4 py-2 hover:bg-gray-700">Danh sách yêu thích</button>
           <button
             onClick={handleLogout}

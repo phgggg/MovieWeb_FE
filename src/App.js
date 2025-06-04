@@ -13,7 +13,10 @@ import SearchResult from "./components/Search/SearchResult";
 import ActorList from "./components/Actor/ActorList";
 import ActorDetails from "./components/Actor/ActorDetails";
 import PlaylistResult from "./components/Playlist/PlaylistResult";
-import UserManagement from "./components/UserManagement/UserManagement";
+import UserManagement from "./components/Management/UserManagement";
+import MediaManagement from "./components/Management/MediaManagement";
+import GenreManagement from "./components/Management/GenreManagement";
+import ReviewManagement from "./components/Management/ReviewManagement";
 function App() {
   return (
 
@@ -32,12 +35,16 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/playMovie/:id" element={<MoviePlayer />} />
         <Route path="/playSerie/:id/:epid" element={<SeriePlayer />} />
+        <Route path="/playSerie/:id" element={<SeriePlayer />} />
         <Route path="/genre/:genre" element={<ListByGenre />} />
         <Route path="/search/:key" element={<SearchResult />} />
         <Route path="/actors" element={<ActorList />} />
         <Route path="/actor/:actorName" element={<ActorDetails />} />
         <Route path="/playlist" element={<PlaylistResult/>}/>
-        <Route path="/user/manage" element={<UserManagement/>}/>
+        <Route path="/manage/user" element={<UserManagement/>}/>
+        <Route path="/manage/media" element={<MediaManagement/>}/>
+        <Route path="/manage/genres" element={<GenreManagement/>}/>
+        <Route path="/manage/reviews" element={<ReviewManagement/>}/>
           </Routes>
         </main>
       </div>

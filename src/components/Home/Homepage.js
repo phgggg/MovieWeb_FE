@@ -2,7 +2,10 @@ import MovieList from "../Movie/MovieList";
 import SerieList from "../Serie/SerieList";
 import Header from "../Header/Header";
 import RecommendList from "../Recommend/RecommendList";
+import { useParams, useNavigate } from "react-router-dom";
+
 const Homepage = () => {
+  const navigate = useNavigate();
   return (
     <div className="bg-black text-white min-h-screen">
       {/* Header */}
@@ -22,7 +25,7 @@ const Homepage = () => {
           <p className="max-w-xl text-gray-300 mt-2">
             In a war-torn world of elemental magic, a young boy reawakens to undertake a dangerous quest...
           </p>
-          <button className="mt-4 px-6 py-3 bg-red-600 text-white font-bold rounded-lg hover:bg-red-700">
+          <button onClick={() => navigate(`/playSerie/246`)} className="mt-4 px-6 py-3 bg-red-600 text-white font-bold rounded-lg hover:bg-red-700">
             ▶ Watch Now
           </button>
         </div>

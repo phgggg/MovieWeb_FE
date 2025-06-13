@@ -32,17 +32,17 @@ const AdminHeader = () => {
   };
 
     const handleGenre = () => {
-    localStorage.removeItem("user");
+
     navigate("/manage/genres");
   };
   
   const handleReview = () => {
-    localStorage.removeItem("user");
+
     navigate("/manage/reviews");
   };
 
     const handleUser = () => {
-    localStorage.removeItem("user");
+
     navigate("/manage/user");
   };
 
